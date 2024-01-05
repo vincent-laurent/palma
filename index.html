@@ -6,7 +6,7 @@
     <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
     <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png">
-      <title>Palma Library</title>
+      <title>Installation</title>
     
           <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
           <link rel="stylesheet" href="_static/theme.css " type="text/css" />
@@ -109,7 +109,7 @@
   <ul class="breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
     
-    <li>Palma Library</li>
+    <li>Installation</li>
   </ul>
   
 
@@ -124,8 +124,7 @@
 <hr>
           <div class="content" role="main" v-pre>
             
-  <section id="palma-library">
-<h1>Palma Library<a class="headerlink" href="#palma-library" title="Link to this heading">¶</a></h1>
+  <img alt="_images/logo.png" src="_images/logo.png" />
 <a class="reference external image-reference" href="https://GitHub.com/eurobios-mews-labs/palma/graphs/commit-activity"><img alt="https://img.shields.io/badge/maintained%3F-yes-green.svg" src="https://img.shields.io/badge/maintained%3F-yes-green.svg" /></a>
 <a class="reference external image-reference" href="https://github.com/pre-commit/pre-commit"><img alt="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&amp;logoColor=white" /></a>
 <a class="reference external image-reference" href="https://docs.pytest.org"><img alt="https://github.com/eurobios-scb/palma/actions/workflows/pytest.yml/badge.svg?event=push" src="https://github.com/eurobios-scb/palma/actions/workflows/pytest.yml/badge.svg?event=push" /></a>
@@ -138,14 +137,14 @@
 <li><p>A collection of <a class="reference internal" href="components.html"><span class="doc">Components</span></a> that can be added to enrich the analysis.</p></li>
 </ol>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p>To install the Palma library, use the following command:</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">palma</span>
 </pre></div>
 </div>
 </section>
 <section id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">¶</a></h2>
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">¶</a></h1>
 <p>Start your project by using the project class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
@@ -164,7 +163,7 @@
 <p>The instantiation defines the type of problem, and the <cite>start</cite> method will set up what is needed to carry out an ML project, including a testing strategy (argument <cite>splitter</cite>), training data <cite>X</cite>, and target <cite>y</cite>.</p>
 </section>
 <section id="run-hyper-optimization">
-<h2>Run Hyper-optimization<a class="headerlink" href="#run-hyper-optimization" title="Link to this heading">¶</a></h2>
+<h1>Run Hyper-optimization<a class="headerlink" href="#run-hyper-optimization" title="Link to this heading">¶</a></h1>
 <a class="reference internal image-reference" href="_images/hyperopt.png"><img alt="_images/hyperopt.png" src="_images/hyperopt.png" style="width: 800px;" /></a>
 <p>The hyper-optimization process will look for the best model in a pool of models that tend to perform well on various problems. For this specific task, the FLAML module is used. After hyperparameterization, the metric to track can be computed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">palma</span> <span class="kn">import</span> <span class="n">ModelSelector</span>
@@ -177,7 +176,7 @@
 </div>
 </section>
 <section id="tailoring-and-analyzing-your-estimator">
-<h2>Tailoring and Analyzing Your Estimator<a class="headerlink" href="#tailoring-and-analyzing-your-estimator" title="Link to this heading">¶</a></h2>
+<h1>Tailoring and Analyzing Your Estimator<a class="headerlink" href="#tailoring-and-analyzing-your-estimator" title="Link to this heading">¶</a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">palma</span> <span class="kn">import</span> <span class="n">ModelEvaluation</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 
@@ -192,16 +191,15 @@
 </div>
 </section>
 <section id="manage-components">
-<h2>Manage Components<a class="headerlink" href="#manage-components" title="Link to this heading">¶</a></h2>
+<h1>Manage Components<a class="headerlink" href="#manage-components" title="Link to this heading">¶</a></h1>
 <p>You can add components to enrich the project. See <a class="reference internal" href="components.html"><span class="doc">Components</span></a> for detailed documentation.</p>
 </section>
 <section id="authors">
-<h2>Authors<a class="headerlink" href="#authors" title="Link to this heading">¶</a></h2>
+<h1>Authors<a class="headerlink" href="#authors" title="Link to this heading">¶</a></h1>
 <p>Eurobios Mews Labs</p>
 <a class="reference internal image-reference" href="_images/logoEurobiosMewsLabs.png"><img alt="_images/logoEurobiosMewsLabs.png" src="_images/logoEurobiosMewsLabs.png" style="width: 150px;" /></a>
 <div class="toctree-wrapper compound">
 </div>
-</section>
 </section>
 
 
