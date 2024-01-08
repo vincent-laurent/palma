@@ -36,7 +36,6 @@ Attributes
 
    Bases: :py:obj:`palma.components.base.Logger`
 
-   
    Logger is an abstract class that defines a common
    interface for a set of Logger-subclasses.
 
@@ -44,22 +43,6 @@ Attributes
    possible for a user to create a custom subclass compatible  with 
    the rest of the components. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
 
@@ -78,58 +61,23 @@ Attributes
 
    Bases: :py:obj:`palma.components.base.Logger`
 
-   
+   Parameters
+   ----------
+   uri : str
+       root path or directory, from which will be saved artifacts and metadata 
 
-
-
-   :Parameters:
-
-       **uri** : str
-           root path or directory, from which will be saved artifacts and metadata 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
-      
       log_project performs the first level of backup as described
       in the object description. 
 
       This method creates the needed folders and saves an instance of         :class:`~palma.Project`.
 
-      :Parameters:
+      Parameters
+      ----------
+      project: :class:`~palma.Project`
+          an instance of Project
 
-          **project: :class:`~palma.Project`**
-              an instance of Project
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
 
    .. py:method:: _log_metrics(metrics: dict, path: str) -> None
 
@@ -146,7 +94,6 @@ Attributes
 
    Bases: :py:obj:`palma.components.base.Logger`
 
-   
    Logger is an abstract class that defines a common
    interface for a set of Logger-subclasses.
 
@@ -154,22 +101,6 @@ Attributes
    possible for a user to create a custom subclass compatible  with 
    the rest of the components. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
 

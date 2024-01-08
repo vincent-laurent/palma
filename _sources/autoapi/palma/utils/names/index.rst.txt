@@ -38,28 +38,11 @@ Attributes
 
 .. py:function:: get_random_name() -> str
 
-   
    get_random_name generates a random name 
 
+   Returns
+   -------
+   str
+       random name
 
-
-   :Returns:
-
-       str
-           random name
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
 

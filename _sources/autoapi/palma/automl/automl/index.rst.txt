@@ -1,0 +1,26 @@
+:py:mod:`palma.automl.automl`
+=============================
+
+.. py:module:: palma.automl.automl
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   palma.automl.automl.AutoMl
+
+
+
+
+.. py:class:: AutoMl(project_name: str, problem: str, X: pandas.DataFrame, y: pandas.Series, splitter, X_test=None, y_test=None, groups=None)
+
+
+   .. py:method:: run(engine_name, engine_parameter)
+
+
+
