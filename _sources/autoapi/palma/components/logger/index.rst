@@ -15,7 +15,7 @@ Classes
    palma.components.logger.DummyLogger
    palma.components.logger.FileSystemLogger
    palma.components.logger.MLFlowLogger
-   palma.components.logger.Log
+   palma.components.logger.__Log
 
 
 
@@ -196,7 +196,7 @@ Attributes
 
 
 
-.. py:class:: Log(dummy)
+.. py:class:: __Log(dummy)
 
 
    .. py:method:: __set__(logger)
