@@ -135,10 +135,13 @@ Classes
    .. py:method:: log_metrics(metrics: dict, path: str) -> None
 
 
-   .. py:method:: log_model(estimator, path: str) -> None
+   .. py:method:: log_artifact(obj, path: str) -> None
 
 
    .. py:method:: log_params(parameters: dict, path: str) -> None
+
+
+   .. py:method:: create_directories()
 
 
 
@@ -196,7 +199,7 @@ Classes
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
 
-   .. py:method:: log_metrics(metrics: dict[str, Any]) -> None
+   .. py:method:: log_metrics(metrics: dict[str, Any], path=None) -> None
 
 
    .. py:method:: log_artifact(artifact: dict, path) -> None
