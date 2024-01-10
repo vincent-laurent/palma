@@ -382,6 +382,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.Project.y"><code class="docutils literal notranslate"><span class="pre">Project.y</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.set_logger"><code class="docutils literal notranslate"><span class="pre">set_logger()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -492,11 +493,6 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.base.Component.logger"><code class="docutils literal notranslate"><span class="pre">Component.logger</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.base.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.base.Logger.log_project"><code class="docutils literal notranslate"><span class="pre">Logger.log_project()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.base.Logger.uri"><code class="docutils literal notranslate"><span class="pre">Logger.uri</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.base.ModelComponent"><code class="docutils literal notranslate"><span class="pre">ModelComponent</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.base.ProjectComponent"><code class="docutils literal notranslate"><span class="pre">ProjectComponent</span></code></a></li>
 </ul>
@@ -523,18 +519,35 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="palma.components.html#module-palma.components.logger">palma.components.logger module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.logger.DummyLogger"><code class="docutils literal notranslate"><span class="pre">DummyLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.DummyLogger.log_metrics"><code class="docutils literal notranslate"><span class="pre">DummyLogger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.DummyLogger.log_model"><code class="docutils literal notranslate"><span class="pre">DummyLogger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.DummyLogger.log_params"><code class="docutils literal notranslate"><span class="pre">DummyLogger.log_params()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.DummyLogger.log_project"><code class="docutils literal notranslate"><span class="pre">DummyLogger.log_project()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.logger.FileSystemLogger"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.FileSystemLogger.log_metrics"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.FileSystemLogger.log_model"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.FileSystemLogger.log_params"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_params()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.FileSystemLogger.log_project"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_project()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger.log_metrics"><code class="docutils literal notranslate"><span class="pre">Logger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger.log_model"><code class="docutils literal notranslate"><span class="pre">Logger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger.log_params"><code class="docutils literal notranslate"><span class="pre">Logger.log_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger.log_project"><code class="docutils literal notranslate"><span class="pre">Logger.log_project()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.Logger.uri"><code class="docutils literal notranslate"><span class="pre">Logger.uri</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger.log_artifact"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_artifact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger.log_metrics"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger.log_model"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger.log_params"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_params()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.logger.MLFlowLogger.log_project"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_project()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.logger.set"><code class="docutils literal notranslate"><span class="pre">set()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="palma.components.html#module-palma.components.performance">palma.components.performance module</a><ul>
@@ -581,10 +594,17 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.FileSystemLogger"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.FileSystemLogger.log_metrics"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.FileSystemLogger.log_model"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.FileSystemLogger.log_params"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_params()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.FileSystemLogger.log_project"><code class="docutils literal notranslate"><span class="pre">FileSystemLogger.log_project()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger.log_artifact"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_artifact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger.log_metrics"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger.log_model"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger.log_params"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_params()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="palma.components.html#palma.components.MLFlowLogger.log_project"><code class="docutils literal notranslate"><span class="pre">MLFlowLogger.log_project()</span></code></a></li>
 </ul>
 </li>
@@ -882,6 +902,29 @@ and logging capabilities.</p>
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="palma.set_logger">
+<span class="sig-prename descclassname"><span class="pre">palma.</span></span><span class="sig-name descname"><span class="pre">set_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.set_logger" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>logger: Logger</strong></dt><dd><p>Define the logger to use.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">palma</span> <span class="kn">import</span> <span class="n">logger</span><span class="p">,</span> <span class="n">set_logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">palma.components</span> <span class="kn">import</span> <span class="n">FileSystemLogger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">palma.components</span> <span class="kn">import</span> <span class="n">MLFlowLogger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">set_logger</span><span class="p">(</span><span class="n">MLFlowLogger</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">set_logger</span><span class="p">(</span><span class="n">FileSystemLogger</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd><p>None</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -943,6 +986,7 @@ and logging capabilities.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.Project.y"><code class="docutils literal notranslate"><span class="pre">Project.y</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.set_logger"><code class="docutils literal notranslate"><span class="pre">set_logger()</span></code></a></li>
 </ul>
 </li>
 </ul>

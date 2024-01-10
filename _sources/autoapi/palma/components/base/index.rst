@@ -15,7 +15,6 @@ Classes
    palma.components.base.Component
    palma.components.base.ProjectComponent
    palma.components.base.ModelComponent
-   palma.components.base.Logger
 
 
 
@@ -112,56 +111,6 @@ Classes
    ..
        !! processed by numpydoc !!
    .. py:method:: __call__(project: palma.base.project.Project, model)
-      :abstractmethod:
-
-
-
-.. py:class:: Logger(uri: str, **kwargs)
-
-
-   
-   Logger is an abstract class that defines a common
-   interface for a set of Logger-subclasses.
-
-   It provides common methods for all possible subclasses, making it 
-   possible for a user to create a custom subclass compatible  with 
-   the rest of the components. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   ..
-       !! processed by numpydoc !!
-   .. py:property:: uri
-
-
-   .. py:method:: __call__(obj: Union[palma.base.project.Project, palma.base.model_selection.ModelSelector]) -> None
-
-
-   .. py:method:: log_project(project: palma.base.project.Project) -> None
-      :abstractmethod:
-
-
-   .. py:method:: _log_metrics(**kwargs) -> None
-      :abstractmethod:
-
-
-   .. py:method:: _log_params(**kwargs) -> None
-      :abstractmethod:
-
-
-   .. py:method:: _log_model(**kwargs) -> None
       :abstractmethod:
 
 

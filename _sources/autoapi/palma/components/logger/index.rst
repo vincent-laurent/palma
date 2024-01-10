@@ -12,19 +12,12 @@ Classes
 
 .. autoapisummary::
 
+   palma.components.logger.Logger
    palma.components.logger.DummyLogger
    palma.components.logger.FileSystemLogger
    palma.components.logger.MLFlowLogger
-   palma.components.logger.__Log
+   palma.components.logger._Logger
 
-
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   palma.components.logger.set
 
 
 
@@ -33,26 +26,77 @@ Attributes
 
 .. autoapisummary::
 
+   palma.components.logger.mlflow
    palma.components.logger._logger
-   palma.components.logger.logger
 
+
+.. py:data:: mlflow
+
+   
 
 .. py:data:: _logger
 
    
 
-.. py:class:: DummyLogger(uri: str, **kwargs)
+.. py:class:: Logger(uri: str, **kwargs)
 
-
-   Bases: :py:obj:`palma.components.base.Logger`
 
    
    Logger is an abstract class that defines a common
    interface for a set of Logger-subclasses.
 
-   It provides common methods for all possible subclasses, making it 
-   possible for a user to create a custom subclass compatible  with 
-   the rest of the components. 
+   It provides common methods for all possible subclasses, making it
+   possible for a user to create a custom subclass compatible  with
+   the rest of the components.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+   .. py:property:: uri
+
+
+   .. py:method:: log_project(project: palma.base.project.Project) -> None
+      :abstractmethod:
+
+
+   .. py:method:: log_metrics(metrics: dict, path: str) -> None
+      :abstractmethod:
+
+
+   .. py:method:: log_params(**kwargs) -> None
+      :abstractmethod:
+
+
+   .. py:method:: log_model(**kwargs) -> None
+      :abstractmethod:
+
+
+
+.. py:class:: DummyLogger(uri: str, **kwargs)
+
+
+   Bases: :py:obj:`Logger`
+
+   
+   Logger is an abstract class that defines a common
+   interface for a set of Logger-subclasses.
+
+   It provides common methods for all possible subclasses, making it
+   possible for a user to create a custom subclass compatible  with
+   the rest of the components.
 
 
 
@@ -73,20 +117,20 @@ Attributes
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
 
-   .. py:method:: _log_metrics(**kwargs) -> None
+   .. py:method:: log_metrics(metrics: dict, path: str) -> None
 
 
-   .. py:method:: _log_params(**kwargs) -> None
+   .. py:method:: log_params(parameters: dict, path: str) -> None
 
 
-   .. py:method:: _log_model(**kwargs) -> None
+   .. py:method:: log_model(estimator, path: str) -> None
 
 
 
 .. py:class:: FileSystemLogger(uri: str = tempfile.gettempdir(), **kwargs)
 
 
-   Bases: :py:obj:`palma.components.base.Logger`
+   Bases: :py:obj:`Logger`
 
    
 
@@ -141,72 +185,127 @@ Attributes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: _log_metrics(metrics: dict, path: str) -> None
+   .. py:method:: log_metrics(metrics: dict, path: str) -> None
 
 
-   .. py:method:: _log_model(estimator, path: str) -> None
+   .. py:method:: log_model(estimator, path: str) -> None
 
 
-   .. py:method:: _log_params(parameters: dict, path: str) -> None
+   .. py:method:: log_params(parameters: dict, path: str) -> None
 
 
 
 .. py:class:: MLFlowLogger(uri: str)
 
 
-   Bases: :py:obj:`palma.components.base.Logger`
+   Bases: :py:obj:`Logger`
 
    
-   Logger is an abstract class that defines a common
-   interface for a set of Logger-subclasses.
-
-   It provides common methods for all possible subclasses, making it 
-   possible for a user to create a custom subclass compatible  with 
-   the rest of the components. 
+   MLFlowLogger class for logging experiments using MLflow.
 
 
+   :Parameters:
 
+       **- uri (str): The URI for the MLflow tracking server.**
+           ..
 
 
 
 
 
+   :Raises:
+
+       ImportError: If mlflow is not installed.
+           ..
 
 
 
 
 
 
+
+   :Attributes:
+
+       **- tmp_logger (FileSystemLogger): Temporary logger for local logging**
+           ..
+
+       **before MLflow logging.**
+           ..
+
+   .. rubric:: Methods
+
+
+
+   ========================================================  ==========
+               **log_project(project: 'Project') -> None:**  Logs the project information to MLflow, including project name and parameters.  
+   **log_metrics(metrics: dict[str, typing.Any]) -> None:**  Logs metrics to MLflow.  
+            **log_artifact(artifact: dict, path) -> None:**  Logs artifacts to MLflow using the temporary logger.  
+                      **log_params(params: dict) -> None:**  Logs parameters to MLflow.  
+                        **log_model(model, path) -> None:**  Logs the model to MLflow using the temporary logger.  
+   ========================================================  ==========
 
    ..
        !! processed by numpydoc !!
    .. py:method:: log_project(project: palma.base.project.Project) -> None
 
 
-   .. py:method:: _log_metrics(metrics: dict[str, Any]) -> None
+   .. py:method:: log_metrics(metrics: dict[str, Any]) -> None
 
 
-   .. py:method:: _log_artifact(artifact: dict, path) -> None
+   .. py:method:: log_artifact(artifact: dict, path) -> None
 
 
-   .. py:method:: _log_params(params: dict) -> None
+   .. py:method:: log_params(params: dict) -> None
 
 
-   .. py:method:: _log_model(model, path)
-
-
-
-.. py:class:: __Log(dummy)
-
-
-   .. py:method:: __set__(logger)
+   .. py:method:: log_model(model, path)
 
 
 
-.. py:data:: logger
+.. py:class:: _Logger(dummy)
 
-   
 
-.. py:function:: set(log_object)
+   .. py:property:: logger
+      :type: Logger
+
+
+   .. py:method:: __set__(logger) -> None
+
+      
+
+
+
+      :Parameters:
+
+          **logger: Logger**
+              Define the logger to use.
+              
+              >>> from palma import logger, set_logger
+              >>> from palma.components import FileSystemLogger
+              >>> from palma.components import MLFlowLogger
+              >>> set_logger(MLFlowLogger(uri="."))
+              >>> set_logger(FileSystemLogger(uri="."))
+
+          **Returns**
+              ..
+
+          **-------**
+              None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
 

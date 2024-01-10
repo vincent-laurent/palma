@@ -31,6 +31,15 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   palma.logger
+   palma.set_logger
+
+
 .. py:class:: ModelEvaluation(estimator)
 
 
@@ -196,4 +205,12 @@ Classes
    .. py:method:: __call_components(object_: Project) -> None
 
 
+
+.. py:data:: logger
+
+   
+
+.. py:data:: set_logger
+
+   
 
