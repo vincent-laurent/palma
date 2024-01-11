@@ -20,7 +20,7 @@ Classes
 .. py:class:: DeepCheck(name: str = 'Data Checker', dataset_parameters: dict = None, whole_dataset_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = data_integrity(), train_test_datasets_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = Suite('Checks train test', train_test_validation()))
 
 
-   Bases: :py:obj:`palma.components.Component`
+   Bases: :py:obj:`palma.components.base.ProjectComponent`
 
    
    This object is a wrapper of the Deepchecks library and allows to audit the
@@ -59,7 +59,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: __call__(project: palma.Project) -> None
+   .. py:method:: __call__(project: palma.base.project.Project) -> None
 
       
       Run suite of checks on the project data.
@@ -86,7 +86,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: __generate_datasets(project: palma.Project, **kwargs) -> None
+   .. py:method:: __generate_datasets(project: palma.base.project.Project, **kwargs) -> None
 
       
       Generate :class:`deepchecks.Dataset`
@@ -95,7 +95,7 @@ Classes
       :Parameters:
 
           **project: project**
-              :class:`~autolm.project.project`
+              :class:`~palma.Project`
 
 
 

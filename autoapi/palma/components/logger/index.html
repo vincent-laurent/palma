@@ -552,7 +552,7 @@ the rest of the components.</p>
 <span class="sig-name descname"><span class="pre">log_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.project.Project" title="palma.base.project.Project"><span class="pre">palma.base.project.Project</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.components.logger.FileSystemLogger.log_project" title="Link to this definition">#</a></dt>
 <dd><p>log_project performs the first level of backup as described
 in the object description.</p>
-<p>This method creates the needed folders and saves an instance of         <a class="reference internal" href="../../../../palma.html#palma.Project" title="palma.Project"><code class="xref py py-class docutils literal notranslate"><span class="pre">Project</span></code></a>.</p>
+<p>This method creates the needed folders and saves an instance of         <a class="reference internal" href="../../index.html#palma.Project" title="palma.Project"><code class="xref py py-class docutils literal notranslate"><span class="pre">Project</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -593,7 +593,8 @@ in the object description.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>- uri (str): The URI for the MLflow tracking server.</strong></dt><dd></dd>
+<dt><strong>uri</strong><span class="classifier">str</span></dt><dd><p>The URI for the MLflow tracking server.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -603,8 +604,8 @@ in the object description.</p>
 </dd>
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>- tmp_logger (FileSystemLogger): Temporary logger for local logging</strong></dt><dd></dd>
-<dt><strong>before MLflow logging.</strong></dt><dd></dd>
+<dt><strong>tmp_logger</strong><span class="classifier">(FileSystemLogger)</span></dt><dd><p>Temporary logger for local logging before MLflow logging.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -677,9 +678,6 @@ in the object description.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">set_logger</span><span class="p">(</span><span class="n">FileSystemLogger</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-</dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd><p>None</p>
 </dd>
 </dl>
 </dd>

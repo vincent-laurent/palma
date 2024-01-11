@@ -211,8 +211,8 @@ Attributes
 
    :Parameters:
 
-       **- uri (str): The URI for the MLflow tracking server.**
-           ..
+       **uri** : str
+           The URI for the MLflow tracking server.
 
 
 
@@ -231,11 +231,8 @@ Attributes
 
    :Attributes:
 
-       **- tmp_logger (FileSystemLogger): Temporary logger for local logging**
-           ..
-
-       **before MLflow logging.**
-           ..
+       **tmp_logger** : (FileSystemLogger)
+           Temporary logger for local logging before MLflow logging.
 
    .. rubric:: Methods
 
@@ -290,12 +287,6 @@ Attributes
               >>> from palma.components import MLFlowLogger
               >>> set_logger(MLFlowLogger(uri="."))
               >>> set_logger(FileSystemLogger(uri="."))
-
-          **Returns**
-              ..
-
-          **-------**
-              None
 
 
 

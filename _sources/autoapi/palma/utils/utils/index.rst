@@ -85,7 +85,7 @@ Functions
 .. py:function:: check_started(message: str, need_build: bool = False) -> Callable
 
    
-   check_built is a decorator used for methods that must be called on     built or unbuilt :class:`~autolm.project.Project`.
+   check_built is a decorator used for methods that must be called on     built or unbuilt :class:`~palma.Project`.
    If the :class:`~autolm.project.Project` is_built attribute has     not the correct value, an AttributeError is raised with the message passed     as argument.
 
 
@@ -95,7 +95,7 @@ Functions
            Error message
 
        **need_build: bool**
-           Expected value for :class:`~autolm.project.Project` is_built         attribute
+           Expected value for :class:`~palma.Project` is_built         attribute
 
    :Returns:
 
