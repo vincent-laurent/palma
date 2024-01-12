@@ -13,6 +13,7 @@ Classes
 .. autoapisummary::
 
    palma.components.data_checker.DeepCheck
+   palma.components.data_checker.Leakage
 
 
 
@@ -114,6 +115,7 @@ Classes
           !! processed by numpydoc !!
 
    .. py:method:: __generate_suite(checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite], name: str) -> deepchecks.tabular.Suite
+      :staticmethod:
 
       
       Generate a Suite of checks from a list of checks or a suite of checks
@@ -169,5 +171,35 @@ Classes
 
       ..
           !! processed by numpydoc !!
+
+
+.. py:class:: Leakage
+
+
+   Bases: :py:obj:`palma.components.base.ProjectComponent`
+
+   
+   Base Project Component class
+
+   This object ensures that all subclasses Project component implements a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+   .. py:method:: __call__(project: palma.base.project.Project) -> None
+
 
 

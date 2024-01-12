@@ -186,6 +186,7 @@
 <li class="toctree-l4"><a class="reference internal" href="autoapi/palma/components/performance/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">palma.components.performance</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/palma/datasets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">palma.datasets</span></code></a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="autoapi/palma/preprocessing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">palma.preprocessing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="autoapi/palma/preprocessing/na_encoder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">palma.preprocessing.na_encoder</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="autoapi/palma/preprocessing/pca/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">palma.preprocessing.pca</span></code></a></li>
@@ -348,6 +349,8 @@ document.write(`
 </li>
         <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.DeepCheck.__call__">(palma.components.data_checker.DeepCheck method)</a>
 </li>
+        <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.Leakage.__call__">(palma.components.data_checker.Leakage method)</a>
+</li>
         <li><a href="autoapi/palma/components/data_profiler/index.html#palma.components.data_profiler.ProfilerYData.__call__">(palma.components.data_profiler.ProfilerYData method)</a>
 </li>
         <li><a href="autoapi/palma/components/index.html#palma.components.DeepCheck.__call__">(palma.components.DeepCheck method)</a>
@@ -383,16 +386,22 @@ document.write(`
       </ul></li>
       <li><a href="autoapi/palma/base/splitting_strategy/index.html#palma.base.splitting_strategy.ValidationStrategy.__correct_nested">__correct_nested() (palma.base.splitting_strategy.ValidationStrategy method)</a>
 </li>
+      <li><a href="autoapi/palma/components/index.html#palma.components.FileSystemLogger.__create_directories">__create_directories() (palma.components.FileSystemLogger method)</a>
+
+      <ul>
+        <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger.FileSystemLogger.__create_directories">(palma.components.logger.FileSystemLogger method)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.DeepCheck.__generate_datasets">__generate_datasets() (palma.components.data_checker.DeepCheck method)</a>
 
       <ul>
         <li><a href="autoapi/palma/components/index.html#palma.components.DeepCheck.__generate_datasets">(palma.components.DeepCheck method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.DeepCheck.__generate_suite">__generate_suite() (palma.components.data_checker.DeepCheck method)</a>
+      <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.DeepCheck.__generate_suite">__generate_suite() (palma.components.data_checker.DeepCheck static method)</a>
 
       <ul>
-        <li><a href="autoapi/palma/components/index.html#palma.components.DeepCheck.__generate_suite">(palma.components.DeepCheck method)</a>
+        <li><a href="autoapi/palma/components/index.html#palma.components.DeepCheck.__generate_suite">(palma.components.DeepCheck static method)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/palma/preprocessing/pca/index.html#palma.preprocessing.pca.PCA.__get_corr">__get_corr() (palma.preprocessing.pca.PCA method)</a>
@@ -405,14 +414,14 @@ document.write(`
       </ul></li>
       <li><a href="autoapi/palma/components/performance/index.html#palma.components.performance.Analyser.__get_metrics_helper">__get_metrics_helper() (palma.components.performance.Analyser method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/palma/components/performance/index.html#palma.components.performance.ScoringAnalysis.__interpolate_roc">__interpolate_roc() (palma.components.performance.ScoringAnalysis method)</a>
 
       <ul>
         <li><a href="autoapi/palma/components/index.html#palma.components.ScoringAnalysis.__interpolate_roc">(palma.components.ScoringAnalysis method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/palma/components/performance/index.html#palma.components.performance.ShapAnalysis.__select_explainer">__select_explainer() (palma.components.performance.ShapAnalysis method)</a>
 
       <ul>
@@ -589,12 +598,6 @@ document.write(`
         <li><a href="autoapi/palma/components/index.html#palma.components.ScoringAnalysis.confusion_matrix">(palma.components.ScoringAnalysis method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/palma/components/index.html#palma.components.FileSystemLogger.create_directories">create_directories() (palma.components.FileSystemLogger method)</a>
-
-      <ul>
-        <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger.FileSystemLogger.create_directories">(palma.components.logger.FileSystemLogger method)</a>, <a href="palma.components.html#palma.components.logger.FileSystemLogger.create_directories">[1]</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -739,7 +742,11 @@ document.write(`
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/palma/components/data_checker/index.html#palma.components.data_checker.Leakage">Leakage (class in palma.components.data_checker)</a>
+</li>
       <li><a href="autoapi/palma/utils/names/index.html#palma.utils.names.LEFT_NAMES">LEFT_NAMES (in module palma.utils.names)</a>
+</li>
+      <li><a href="autoapi/palma/datasets/index.html#palma.datasets.load_credit_approval">load_credit_approval() (in module palma.datasets)</a>
 </li>
       <li><a href="autoapi/palma/components/index.html#palma.components.FileSystemLogger.log_artifact">log_artifact() (palma.components.FileSystemLogger method)</a>
 
@@ -775,6 +782,8 @@ document.write(`
         <li><a href="autoapi/palma/components/index.html#palma.components.MLFlowLogger.log_model">(palma.components.MLFlowLogger method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/palma/components/index.html#palma.components.FileSystemLogger.log_params">log_params() (palma.components.FileSystemLogger method)</a>
 
       <ul>
@@ -789,8 +798,6 @@ document.write(`
         <li><a href="autoapi/palma/components/index.html#palma.components.MLFlowLogger.log_params">(palma.components.MLFlowLogger method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/palma/components/index.html#palma.components.FileSystemLogger.log_project">log_project() (palma.components.FileSystemLogger method)</a>
 
       <ul>
@@ -812,11 +819,7 @@ document.write(`
       <ul>
         <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger.logger">(in module palma.components.logger)</a>
 </li>
-        <li><a href="autoapi/palma/base/model/index.html#palma.base.model.ModelEvaluation.logger">(palma.base.model.ModelEvaluation property)</a>, <a href="palma.base.html#palma.base.model.ModelEvaluation.logger">[1]</a>
-</li>
         <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger._Logger.logger">(palma.components.logger._Logger property)</a>
-</li>
-        <li><a href="autoapi/palma/index.html#palma.ModelEvaluation.logger">(palma.ModelEvaluation property)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -888,6 +891,8 @@ document.write(`
         <li><a href="autoapi/palma/components/logger/index.html#module-palma.components.logger">palma.components.logger</a>, <a href="palma.components.html#module-palma.components.logger">[1]</a>
 </li>
         <li><a href="autoapi/palma/components/performance/index.html#module-palma.components.performance">palma.components.performance</a>, <a href="palma.components.html#module-palma.components.performance">[1]</a>
+</li>
+        <li><a href="autoapi/palma/datasets/index.html#module-palma.datasets">palma.datasets</a>
 </li>
         <li><a href="autoapi/palma/preprocessing/index.html#module-palma.preprocessing">palma.preprocessing</a>
 </li>
@@ -1054,6 +1059,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    palma.datasets
+
+      <ul>
+        <li><a href="autoapi/palma/datasets/index.html#module-palma.datasets">module</a>
+</li>
+      </ul></li>
+      <li>
     palma.preprocessing
 
       <ul>
@@ -1095,6 +1107,8 @@ document.write(`
         <li><a href="autoapi/palma/utils/names/index.html#module-palma.utils.names">module</a>, <a href="palma.utils.html#module-palma.utils.names">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     palma.utils.plotting
 
@@ -1102,8 +1116,6 @@ document.write(`
         <li><a href="autoapi/palma/utils/plotting/index.html#module-palma.utils.plotting">module</a>, <a href="palma.utils.html#module-palma.utils.plotting">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     palma.utils.utils
 
@@ -1343,8 +1355,12 @@ document.write(`
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger.Logger.uri">uri (palma.components.logger.Logger property)</a>, <a href="palma.components.html#palma.components.logger.Logger.uri">[1]</a>
+      <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger._Logger.uri">uri (palma.components.logger._Logger property)</a>
+
+      <ul>
+        <li><a href="autoapi/palma/components/logger/index.html#palma.components.logger.Logger.uri">(palma.components.logger.Logger property)</a>, <a href="palma.components.html#palma.components.logger.Logger.uri">[1]</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

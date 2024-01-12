@@ -75,13 +75,17 @@ Classes
    Bases: :py:obj:`Logger`
 
    
-
+   A logger for saving artifacts and metadata to the file system.
 
 
    :Parameters:
 
-       **uri** : str
-           root path or directory, from which will be saved artifacts and metadata 
+       **uri** : str, optional
+           The root path or directory where artifacts and metadata will be saved.
+           Defaults to the system temporary directory.
+
+       **\*\*kwargs** : dict
+           Additional keyword arguments to pass to the base logger.
 
 
 
@@ -94,7 +98,24 @@ Classes
 
 
 
+   :Attributes:
 
+       **path_project** : str
+           The path to the project directory.
+
+       **path_study** : str
+           The path to the study directory within the project.
+
+   .. rubric:: Methods
+
+
+
+   ===================================================  ==========
+             **log_project(project: Project) -> None**  Performs the first level of backup by creating folders and saving an instance of  :class:`~palma.Project`.  
+     **log_metrics(metrics: dict, path: str) -> None**  Saves metrics in JSON format at the specified path.  
+              **log_artifact(obj, path: str) -> None**  Saves an artifact at the specified path, handling different types of objects.  
+   **log_params(parameters: dict, path: str) -> None**  Saves model parameters in JSON format at the specified path.  
+   ===================================================  ==========
 
    ..
        !! processed by numpydoc !!
@@ -129,18 +150,124 @@ Classes
 
    .. py:method:: log_metrics(metrics: dict, path: str) -> None
 
+      
+      Logs metrics to a JSON file.
+
+
+      :Parameters:
+
+          **metrics** : dict
+              The metrics to be logged.
+
+          **path** : str
+              The relative path (from the study directory)
+              where the metrics JSON file will be saved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: log_artifact(obj, path: str) -> None
 
+      
+      Logs an artifact, handling different types of objects.
+
+
+      :Parameters:
+
+          **obj** : any
+              The artifact to be logged.
+
+          **path** : str
+              The relative path (from the study directory)
+              where the artifact will be saved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: log_params(parameters: dict, path: str) -> None
 
+      
+      Logs model parameters to a JSON file.
 
-   .. py:method:: create_directories()
+
+      :Parameters:
+
+          **parameters** : dict
+              The model parameters to be logged.
+
+          **path** : str
+              The relative path (from the study directory) where the parameters
+              JSON file will be saved.
 
 
 
-.. py:class:: MLFlowLogger(uri: str)
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+   .. py:method:: __create_directories()
+
+      
+      Creates the study directory if it doesn't exist.
+
+      If the study directory does not exist,
+      it is created along with any necessary parent directories.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: MLFlowLogger(uri: str, artifact_location: str = '.mlruns')
 
 
    Bases: :py:obj:`Logger`
@@ -153,6 +280,9 @@ Classes
 
        **uri** : str
            The URI for the MLflow tracking server.
+
+       **artifact_location** : str
+           The place to save artifact on file system logger
 
 
 
@@ -650,6 +780,7 @@ Classes
           !! processed by numpydoc !!
 
    .. py:method:: __generate_suite(checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite], name: str) -> deepchecks.tabular.Suite
+      :staticmethod:
 
       
       Generate a Suite of checks from a list of checks or a suite of checks
