@@ -553,7 +553,7 @@ Classes
 
 
 
-.. py:class:: DeepCheck(name: str = 'Data Checker', dataset_parameters: dict = None, whole_dataset_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = data_integrity(), train_test_datasets_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = Suite('Checks train test', train_test_validation()))
+.. py:class:: DeepCheck(name: str = 'Data Checker', dataset_parameters: dict = None, dataset_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = data_integrity(), train_test_datasets_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = Suite('Checks train test', train_test_validation()))
 
 
    Bases: :py:obj:`palma.components.base.ProjectComponent`
@@ -569,7 +569,7 @@ Classes
            Parameters and their values that will be used to generate
            :class:`deepchecks.Dataset` instances (required to run the checks on)
 
-       **whole_dataset_checks: Union[List[BaseCheck], BaseSuite], optional**
+       **dataset_checks: Union[List[BaseCheck], BaseSuite], optional**
            List of checks or suite of checks that will be run on the whole dataset
            By default: use the default suite single_dataset_integrity to detect
            the integrity issues
@@ -667,30 +667,6 @@ Classes
 
           suite: :class:`deepchecks.Suite`
               instance of :class:`deepchecks.Suite`
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
-
-   .. py:method:: items_to_log() -> List[Tuple[str, Any]]
-
-      
-      This method returns the checks' results in two files : an html report
-      and a json file.
-
-
-
 
 
 
