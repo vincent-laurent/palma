@@ -60,7 +60,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: __call__(project: palma.base.project.Project) -> None
+   .. py:method:: __call__(project: palma.Project) -> None
 
       
       Run suite of checks on the project data.
@@ -87,7 +87,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: __generate_datasets(project: palma.base.project.Project, **kwargs) -> None
+   .. py:method:: __generate_datasets(project: palma.Project, **kwargs) -> None
 
       
       Generate :class:`deepchecks.Dataset`
@@ -199,7 +199,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: __call__(project: palma.base.project.Project) -> None
+   .. py:method:: __call__(project: palma.Project) -> None
 
 
 
