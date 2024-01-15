@@ -390,9 +390,6 @@ Attributes
    .. py:method:: log_params(params: dict) -> None
 
 
-   .. py:method:: log_model(model, path)
-
-
 
 .. py:class:: _Logger(dummy)
 

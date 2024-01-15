@@ -202,10 +202,13 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:property:: properties
+   .. py:property:: metrics
 
 
    .. py:method:: __call__(project: palma.base.project.Project) -> None
+
+
+   .. py:method:: cross_validation_leakage(project)
 
 
 
