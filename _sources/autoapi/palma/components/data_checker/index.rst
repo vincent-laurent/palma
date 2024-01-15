@@ -42,7 +42,7 @@ Classes
        **train_test_datasets_checks: Union[List[BaseCheck], BaseSuite], optional**
            List of checks or suite of checks to detect issues related to the
            train-test split, such as feature drift, detecting data leakage...
-           By default: use the default suites train_test_validation and
+           By default, use the default suites train_test_validation and
            train_test_leakage
 
 
@@ -60,7 +60,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: __call__(project: palma.Project) -> None
+   .. py:method:: __call__(project: palma.base.project.Project) -> None
 
       
       Run suite of checks on the project data.
@@ -68,7 +68,7 @@ Classes
 
       :Parameters:
 
-          **project: project**
+          **project: :class:`~palma.Project`**
               ..
 
 
@@ -87,7 +87,7 @@ Classes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: __generate_datasets(project: palma.Project, **kwargs) -> None
+   .. py:method:: __generate_datasets(project: palma.base.project.Project, **kwargs) -> None
 
       
       Generate :class:`deepchecks.Dataset`
@@ -179,9 +179,12 @@ Classes
    Bases: :py:obj:`palma.components.base.ProjectComponent`
 
    
-   Base Project Component class
+   Class for detecting data leakage in a classification project.
 
-   This object ensures that all subclasses Project component implements a
+   This class implements component that checks for data leakage in a given
+   project. It uses the FLAML optimizer for model selection and performs
+   a scoring analysis to check for the presence of data leakage based on
+   the AUC metric.
 
 
 
@@ -199,7 +202,10 @@ Classes
 
    ..
        !! processed by numpydoc !!
-   .. py:method:: __call__(project: palma.Project) -> None
+   .. py:property:: properties
+
+
+   .. py:method:: __call__(project: palma.base.project.Project) -> None
 
 
 
