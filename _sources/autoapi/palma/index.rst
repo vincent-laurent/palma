@@ -10,6 +10,7 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   automl/index.rst
    base/index.rst
    components/index.rst
    datasets/index.rst
