@@ -25,15 +25,10 @@ Attributes
 
 .. autoapisummary::
 
-   palma.components.performance.colors
-   palma.components.performance.colors_rainbow
+   palma.components.performance.__fpr_sampling__
 
 
-.. py:data:: colors
-
-   
-
-.. py:data:: colors_rainbow
+.. py:data:: __fpr_sampling__
 
    
 
@@ -43,9 +38,14 @@ Attributes
    Bases: :py:obj:`palma.components.base.ModelComponent`
 
    
-   Base Model Component class
+   Analyser class for performing analysis on a model.
 
 
+   :Parameters:
+
+       **on** : str
+           The type of analysis to perform. Possible values are
+           "indexes_train_test" or "indexes_val".
 
 
 
@@ -62,13 +62,8 @@ Attributes
 
    ..
        !! processed by numpydoc !!
-   .. py:attribute:: metrics
+   .. py:property:: metrics
 
-      
-
-   .. py:attribute:: _metrics
-
-      
 
    .. py:method:: __call__(project: Project, model: ModelEvaluation)
 
@@ -78,16 +73,71 @@ Attributes
 
    .. py:method:: variable_importance()
 
+      
+      Compute the feature importance for each estimator.
+
+
+
+      :Returns:
+
+          **feature_importance** : pandas.DataFrame
+              DataFrame containing the feature importance values for each estimator.
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: compute_metrics(metric: dict)
 
+      
+      Compute the specified metrics for each estimator.
+
+
+      :Parameters:
+
+          **metric** : dict
+              Dictionary containing the metric name as key and the metric function as value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: _compute_metric(name: str, fun: Callable)
 
       
-      Compute on specific metric and add it to 'metric' attribute
+      Compute a specific metric and add it to the metrics attribute.
 
 
+      :Parameters:
+
+          **name** : str
+              The name of the metric.
+
+          **fun** : callable
+              The function to compute the metric.
 
 
 
@@ -107,15 +157,93 @@ Attributes
 
    .. py:method:: get_train_metrics() -> pandas.DataFrame
 
+      
+      Get the computed metrics for the training set.
+
+
+
+      :Returns:
+
+          pd.DataFrame
+              DataFrame containing the computed metrics for the training set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: get_test_metrics() -> pandas.DataFrame
 
+      
+      Get the computed metrics for the test set.
+
+
+
+      :Returns:
+
+          pd.DataFrame
+              DataFrame containing the computed metrics for the test set.
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: __get_metrics_helper(identifier) -> pandas.DataFrame
 
 
    .. py:method:: plot_variable_importance(mode='minmax', color='darkblue', cmap='flare')
 
+      
+      Plot the variable importance.
+
+
+      :Parameters:
+
+          **mode** : str, optional
+              The mode for plotting the variable importance, by default "minmax".
+
+          **color** : str, optional
+              The color for the plot, by default "darkblue".
+
+          **cmap** : str, optional
+              The colormap for the plot, by default "flare".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
 
 .. py:class:: ShapAnalysis(on, n_shap, compute_interaction=False)
@@ -124,9 +252,14 @@ Attributes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   Analyser class for performing analysis on a model.
 
 
+   :Parameters:
+
+       **on** : str
+           The type of analysis to perform. Possible values are
+           "indexes_train_test" or "indexes_val".
 
 
 
@@ -171,7 +304,8 @@ Attributes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   The ScoringAnalyser class provides methods for analyzing the performance of
+   a machine learning model.
 
 
 
@@ -193,17 +327,13 @@ Attributes
    .. py:property:: threshold
 
 
-   .. py:attribute:: mean_fpr
-
-      
-
    .. py:method:: confusion_matrix(in_percentage=False)
 
 
    .. py:method:: __interpolate_roc(_)
 
 
-   .. py:method:: plot_roc_curve(plot_method='mean', plot_train: bool = False, c=colors[0], cmap: str = 'inferno', cv_iter=None, label: str = '', mode: str = 'std', label_iter: iter = None, plot_base: bool = True, **kwargs)
+   .. py:method:: plot_roc_curve(plot_method='mean', plot_train: bool = False, c='C0', cmap: str = 'inferno', label: str = '', mode: str = 'std', label_iter: iter = None, plot_base: bool = True, **kwargs)
 
       
       Plot the ROC curve.
@@ -298,7 +428,14 @@ Attributes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   Analyser class for performing analysis on a regression model.
+
+
+   :Parameters:
+
+       **on** : str
+           The type of analysis to perform. Possible values are
+           "indexes_train_test" or "indexes_val".
 
 
 
@@ -311,9 +448,24 @@ Attributes
 
 
 
+   :Attributes:
+
+       **_hidden_metrics** : dict
+           Dictionary to store additional metrics that are not displayed.
+
+   .. rubric:: Methods
 
 
 
+   ===========================================================================  ==========
+                                                     **variable_importance()**  Compute the feature importance for each estimator.  
+                                             **compute_metrics(metric: dict)**  Compute the specified metrics for each estimator.  
+                                       **get_train_metrics() -> pd.DataFrame**  Get the computed metrics for the training set.  
+                                        **get_test_metrics() -> pd.DataFrame**  Get the computed metrics for the test set.  
+   **plot_variable_importance(mode="minmax", color="darkblue", cmap="flare")**  Plot the variable importance.  
+                                               **plot_prediction_versus_real**  Plot prediction versus real values  
+                                                      **plot_errors_pairgrid**  Plot pair grid errors  
+   ===========================================================================  ==========
 
    ..
        !! processed by numpydoc !!

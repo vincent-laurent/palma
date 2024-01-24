@@ -478,7 +478,14 @@ Classes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   Analyser class for performing analysis on a regression model.
+
+
+   :Parameters:
+
+       **on** : str
+           The type of analysis to perform. Possible values are
+           "indexes_train_test" or "indexes_val".
 
 
 
@@ -491,9 +498,24 @@ Classes
 
 
 
+   :Attributes:
+
+       **_hidden_metrics** : dict
+           Dictionary to store additional metrics that are not displayed.
+
+   .. rubric:: Methods
 
 
 
+   ===========================================================================  ==========
+                                                     **variable_importance()**  Compute the feature importance for each estimator.  
+                                             **compute_metrics(metric: dict)**  Compute the specified metrics for each estimator.  
+                                       **get_train_metrics() -> pd.DataFrame**  Get the computed metrics for the training set.  
+                                        **get_test_metrics() -> pd.DataFrame**  Get the computed metrics for the test set.  
+   **plot_variable_importance(mode="minmax", color="darkblue", cmap="flare")**  Plot the variable importance.  
+                                               **plot_prediction_versus_real**  Plot prediction versus real values  
+                                                      **plot_errors_pairgrid**  Plot pair grid errors  
+   ===========================================================================  ==========
 
    ..
        !! processed by numpydoc !!
@@ -513,7 +535,8 @@ Classes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   The ScoringAnalyser class provides methods for analyzing the performance of
+   a machine learning model.
 
 
 
@@ -535,17 +558,13 @@ Classes
    .. py:property:: threshold
 
 
-   .. py:attribute:: mean_fpr
-
-      
-
    .. py:method:: confusion_matrix(in_percentage=False)
 
 
    .. py:method:: __interpolate_roc(_)
 
 
-   .. py:method:: plot_roc_curve(plot_method='mean', plot_train: bool = False, c=colors[0], cmap: str = 'inferno', cv_iter=None, label: str = '', mode: str = 'std', label_iter: iter = None, plot_base: bool = True, **kwargs)
+   .. py:method:: plot_roc_curve(plot_method='mean', plot_train: bool = False, c='C0', cmap: str = 'inferno', label: str = '', mode: str = 'std', label_iter: iter = None, plot_base: bool = True, **kwargs)
 
       
       Plot the ROC curve.
@@ -640,9 +659,14 @@ Classes
    Bases: :py:obj:`Analyser`
 
    
-   Base Model Component class
+   Analyser class for performing analysis on a model.
 
 
+   :Parameters:
+
+       **on** : str
+           The type of analysis to perform. Possible values are
+           "indexes_train_test" or "indexes_val".
 
 
 
@@ -681,7 +705,7 @@ Classes
 
 
 
-.. py:class:: DeepCheck(name: str = 'Data Checker', dataset_parameters: dict = None, dataset_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = data_integrity(), train_test_datasets_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = Suite('Checks train test', train_test_validation()), raise_on_fail=True)
+.. py:class:: DeepCheck(name: str = 'Data Checker', dataset_parameters: dict = None, dataset_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = data_integrity(), train_test_datasets_checks: Union[List[deepchecks.core.BaseCheck], deepchecks.core.BaseSuite] = Suite('Checks train test', train_test_validation()))
 
 
    Bases: :py:obj:`palma.components.base.ProjectComponent`
@@ -707,9 +731,6 @@ Classes
            train-test split, such as feature drift, detecting data leakage...
            By default, use the default suites train_test_validation and
            train_test_leakage
-
-       **raise_on_fail: bool, optional**
-           Raises error if one test fails
 
 
 

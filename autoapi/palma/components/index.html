@@ -394,7 +394,6 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.threshold"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.threshold</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.mean_fpr"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.mean_fpr</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.confusion_matrix"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.confusion_matrix()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.__interpolate_roc"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.__interpolate_roc()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.plot_roc_curve"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.plot_roc_curve()</span></code></a></li>
@@ -478,13 +477,13 @@ document.write(`
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#palma.components.RegressionAnalysis" title="palma.components.RegressionAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionAnalysis</span></code></a></p></td>
-<td><p>Base Model Component class</p></td>
+<td><p>Analyser class for performing analysis on a regression model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#palma.components.ScoringAnalysis" title="palma.components.ScoringAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScoringAnalysis</span></code></a></p></td>
-<td><p>Base Model Component class</p></td>
+<td><p>The ScoringAnalyser class provides methods for analyzing the performance of</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#palma.components.ShapAnalysis" title="palma.components.ShapAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShapAnalysis</span></code></a></p></td>
-<td><p>Base Model Component class</p></td>
+<td><p>Analyser class for performing analysis on a model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#palma.components.DeepCheck" title="palma.components.DeepCheck"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeepCheck</span></code></a></p></td>
 <td><p>This object is a wrapper of the Deepchecks library and allows to audit the</p></td>
@@ -786,7 +785,48 @@ for more detail.</p>
 <dt class="sig sig-object py" id="palma.components.RegressionAnalysis">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.components.</span></span><span class="sig-name descname"><span class="pre">RegressionAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.RegressionAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Analyser</span></code></p>
-<p>Base Model Component class</p>
+<p>Analyser class for performing analysis on a regression model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>on</strong><span class="classifier">str</span></dt><dd><p>The type of analysis to perform. Possible values are
+“indexes_train_test” or “indexes_val”.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>_hidden_metrics</strong><span class="classifier">dict</span></dt><dd><p>Dictionary to store additional metrics that are not displayed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>variable_importance()</strong></p></td>
+<td><p>Compute the feature importance for each estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>compute_metrics(metric: dict)</strong></p></td>
+<td><p>Compute the specified metrics for each estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_train_metrics() -&gt; pd.DataFrame</strong></p></td>
+<td><p>Get the computed metrics for the training set.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_test_metrics() -&gt; pd.DataFrame</strong></p></td>
+<td><p>Get the computed metrics for the test set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_variable_importance(mode=”minmax”, color=”darkblue”, cmap=”flare”)</strong></p></td>
+<td><p>Plot the variable importance.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot_prediction_versus_real</strong></p></td>
+<td><p>Plot prediction versus real values</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plot_errors_pairgrid</strong></p></td>
+<td><p>Plot pair grid errors</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.RegressionAnalysis.compute_predictions_errors">
 <span class="sig-name descname"><span class="pre">compute_predictions_errors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.RegressionAnalysis.compute_predictions_errors" title="Link to this definition">#</a></dt>
@@ -808,15 +848,11 @@ for more detail.</p>
 <dt class="sig sig-object py" id="palma.components.ScoringAnalysis">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.components.</span></span><span class="sig-name descname"><span class="pre">ScoringAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.ScoringAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Analyser</span></code></p>
-<p>Base Model Component class</p>
+<p>The ScoringAnalyser class provides methods for analyzing the performance of
+a machine learning model.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="palma.components.ScoringAnalysis.threshold">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold</span></span><a class="headerlink" href="#palma.components.ScoringAnalysis.threshold" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="palma.components.ScoringAnalysis.mean_fpr">
-<span class="sig-name descname"><span class="pre">mean_fpr</span></span><a class="headerlink" href="#palma.components.ScoringAnalysis.mean_fpr" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -831,7 +867,7 @@ for more detail.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.ScoringAnalysis.plot_roc_curve">
-<span class="sig-name descname"><span class="pre">plot_roc_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">colors[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inferno'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'std'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">iter</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.ScoringAnalysis.plot_roc_curve" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot_roc_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inferno'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'std'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">iter</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.ScoringAnalysis.plot_roc_curve" title="Link to this definition">#</a></dt>
 <dd><p>Plot the ROC curve.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -880,7 +916,16 @@ for more detail.</p>
 <dt class="sig sig-object py" id="palma.components.ShapAnalysis">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.components.</span></span><span class="sig-name descname"><span class="pre">ShapAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_interaction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.ShapAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Analyser</span></code></p>
-<p>Base Model Component class</p>
+<p>Analyser class for performing analysis on a model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>on</strong><span class="classifier">str</span></dt><dd><p>The type of analysis to perform. Possible values are
+“indexes_train_test” or “indexes_val”.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.ShapAnalysis.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../palma.base.html#palma.base.project.Project" title="palma.base.project.Project"><span class="pre">Project</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../palma.base.html#palma.base.model.ModelEvaluation" title="palma.base.model.ModelEvaluation"><span class="pre">ModelEvaluation</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.ShapAnalysis.__call__" title="Link to this definition">#</a></dt>
@@ -920,7 +965,7 @@ for more detail.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="palma.components.DeepCheck">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.components.</span></span><span class="sig-name descname"><span class="pre">DeepCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Data</span> <span class="pre">Checker'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">deepchecks.core.BaseCheck</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">deepchecks.core.BaseSuite</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">data_integrity()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_datasets_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">deepchecks.core.BaseCheck</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">deepchecks.core.BaseSuite</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Suite('Checks</span> <span class="pre">train</span> <span class="pre">test',</span> <span class="pre">train_test_validation())</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_on_fail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.DeepCheck" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.components.</span></span><span class="sig-name descname"><span class="pre">DeepCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Data</span> <span class="pre">Checker'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">deepchecks.core.BaseCheck</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">deepchecks.core.BaseSuite</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">data_integrity()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_datasets_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">deepchecks.core.BaseCheck</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">deepchecks.core.BaseSuite</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Suite('Checks</span> <span class="pre">train</span> <span class="pre">test',</span> <span class="pre">train_test_validation())</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.DeepCheck" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../../../palma.components.html#palma.components.base.ProjectComponent" title="palma.components.base.ProjectComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">palma.components.base.ProjectComponent</span></code></a></p>
 <p>This object is a wrapper of the Deepchecks library and allows to audit the
 data through various checks such as data drift, duplicate values, …</p>
@@ -938,8 +983,6 @@ the integrity issues</p>
 train-test split, such as feature drift, detecting data leakage…
 By default, use the default suites train_test_validation and
 train_test_leakage</p>
-</dd>
-<dt><strong>raise_on_fail: bool, optional</strong></dt><dd><p>Raises error if one test fails</p>
 </dd>
 </dl>
 </dd>
@@ -1118,7 +1161,6 @@ the AUC metric.</p>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.threshold"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.threshold</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.mean_fpr"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.mean_fpr</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.confusion_matrix"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.confusion_matrix()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.__interpolate_roc"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.__interpolate_roc()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.components.ScoringAnalysis.plot_roc_curve"><code class="docutils literal notranslate"><span class="pre">ScoringAnalysis.plot_roc_curve()</span></code></a></li>
