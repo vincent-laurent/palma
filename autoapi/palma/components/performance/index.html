@@ -637,7 +637,22 @@ a machine learning model.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.performance.ScoringAnalysis.confusion_matrix">
 <span class="sig-name descname"><span class="pre">confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.performance.ScoringAnalysis.confusion_matrix" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Compute the confusion matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>in_percentage</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the confusion matrix in percentage, by default False</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>The confusion matrix</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.performance.ScoringAnalysis.__interpolate_roc">
@@ -663,7 +678,6 @@ a machine learning model.</p>
 <dt><strong>c: str</strong></dt><dd><p>Not used only with plot_method=”all”. Set the color of ROC curve</p>
 </dd>
 <dt><strong>cmap: str</strong></dt><dd></dd>
-<dt><strong>cv_iter</strong></dt><dd></dd>
 <dt><strong>label</strong></dt><dd></dd>
 <dt><strong>mode</strong></dt><dd></dd>
 <dt><strong>label_iter</strong></dt><dd></dd>
@@ -682,12 +696,53 @@ a machine learning model.</p>
 <dt class="sig sig-object py" id="palma.components.performance.ScoringAnalysis.compute_threshold">
 <span class="sig-name descname"><span class="pre">compute_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'total_population'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.performance.ScoringAnalysis.compute_threshold" title="Link to this definition">#</a></dt>
 <dd><p>Compute threshold using various heuristics</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>The method to compute the threshold, by default “total_population”</p>
+<ul class="simple">
+<li><p>total population : compute threshold so that the percentage of</p></li>
+</ul>
+<p>positive prediction is equal to <cite>value</cite>
+- fpr : compute threshold so that the false positive rate
+is equal to <cite>value</cite>
+- optimize_metric : compute threshold so that the metric is optimized
+<cite>value</cite> parameter is ignored, <cite>metric</cite> parameter must be provided</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float, optional</span></dt><dd><p>The value to use for the threshold computation, by default 0.5</p>
+</dd>
+<dt><strong>metric</strong><span class="classifier">typing.Callable, optional</span></dt><dd><p>The metric function to use for the threshold computation, by default None</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>float</dt><dd><p>The computed threshold</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="palma.components.performance.ScoringAnalysis.plot_threshold">
 <span class="sig-name descname"><span class="pre">plot_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">plot_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.components.performance.ScoringAnalysis.plot_threshold" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Plot the threshold on fpr/tpr axes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>plot_kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments to pass to the scatter plot function</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.pyplot</dt><dd><p>The threshold plot</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

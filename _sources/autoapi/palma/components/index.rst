@@ -560,6 +560,34 @@ Classes
 
    .. py:method:: confusion_matrix(in_percentage=False)
 
+      
+      Compute the confusion matrix.
+
+
+      :Parameters:
+
+          **in_percentage** : bool, optional
+              Whether to return the confusion matrix in percentage, by default False
+
+      :Returns:
+
+          pandas.DataFrame
+              The confusion matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
    .. py:method:: __interpolate_roc(_)
 
@@ -586,9 +614,6 @@ Classes
               Not used only with plot_method="all". Set the color of ROC curve
 
           **cmap: str**
-              ..
-
-          **cv_iter**
               ..
 
           **label**
@@ -632,7 +657,28 @@ Classes
       Compute threshold using various heuristics
 
 
+      :Parameters:
 
+          **method** : str, optional
+              The method to compute the threshold, by default "total_population"
+              
+              - total population : compute threshold so that the percentage of
+              positive prediction is equal to `value`
+              - fpr : compute threshold so that the false positive rate
+              is equal to `value`
+              - optimize_metric : compute threshold so that the metric is optimized
+              `value` parameter is ignored, `metric` parameter must be provided
+
+          **value** : float, optional
+              The value to use for the threshold computation, by default 0.5
+
+          **metric** : typing.Callable, optional
+              The metric function to use for the threshold computation, by default None
+
+      :Returns:
+
+          float
+              The computed threshold
 
 
 
@@ -651,6 +697,34 @@ Classes
 
    .. py:method:: plot_threshold(**plot_kwargs)
 
+      
+      Plot the threshold on fpr/tpr axes
+
+
+      :Parameters:
+
+          **plot_kwargs** : dict, optional
+              Additional keyword arguments to pass to the scatter plot function
+
+      :Returns:
+
+          matplotlib.pyplot
+              The threshold plot
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
 
 
 .. py:class:: ShapAnalysis(on, n_shap, compute_interaction=False)
