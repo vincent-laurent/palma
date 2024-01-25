@@ -212,7 +212,7 @@ Attributes
    .. py:method:: __get_metrics_helper(identifier) -> pandas.DataFrame
 
 
-   .. py:method:: plot_variable_importance(mode='minmax', color='darkblue', cmap='flare')
+   .. py:method:: plot_variable_importance(mode='minmax', color='darkblue', cmap='flare', **kwargs)
 
       
       Plot the variable importance.
