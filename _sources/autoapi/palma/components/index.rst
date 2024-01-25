@@ -913,29 +913,6 @@ Classes
       ..
           !! processed by numpydoc !!
 
-   .. py:method:: __str__() -> str
-
-      
-      Return str(self).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
-
 
 .. py:class:: Leakage
 
