@@ -92,6 +92,10 @@ Classes
 
    ..
        !! processed by numpydoc !!
+   .. py:property:: base_index
+      :type: List[int]
+
+
    .. py:property:: components
       :type: dict
 
