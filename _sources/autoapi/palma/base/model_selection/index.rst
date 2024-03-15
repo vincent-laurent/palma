@@ -24,7 +24,7 @@ Classes
       :type: str
 
 
-   .. py:method:: start(project: palma.base.project.Project)
+   .. py:method:: start(project: Project)
 
 
 

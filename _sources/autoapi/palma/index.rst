@@ -10,7 +10,6 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
-   automl/index.rst
    base/index.rst
    components/index.rst
    datasets/index.rst
@@ -72,7 +71,7 @@ Attributes
       :type: str
 
 
-   .. py:method:: start(project: palma.base.project.Project)
+   .. py:method:: start(project: Project)
 
 
 
@@ -151,10 +150,6 @@ Attributes
 
    ..
        !! processed by numpydoc !!
-   .. py:property:: base_index
-      :type: List[int]
-
-
    .. py:property:: components
       :type: dict
 
