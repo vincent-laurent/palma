@@ -17,6 +17,7 @@ Submodules
    data_profiler/index.rst
    logger/index.rst
    performance/index.rst
+   simplify_model/index.rst
 
 
 Package Contents
