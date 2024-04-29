@@ -60,7 +60,7 @@ Attributes
    .. py:method:: __get_fit_estimators(X, y, indexes)
 
 
-   .. py:method:: __compute_predictions(project, indexes)
+   .. py:method:: __compute_predictions(project, indexes, estimators)
 
 
 
