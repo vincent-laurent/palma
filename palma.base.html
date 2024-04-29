@@ -51,8 +51,9 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'palma.base';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <script defer data-domain="eurobios-mews-labs.github.io/palma" src="https://plausible.io/js/script.js"></script>
+    <jinja2.runtime.BlockReference object at 0x7f3d0dfdf910>
+
   </head>
   
   
@@ -155,7 +156,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="concept.html">The main concepts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic components</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Usage</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="project.html">Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.selector.html">Model selector</a></li>
@@ -385,6 +386,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.components"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.components</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.fit"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.fit()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.id"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.unfit_estimator"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.unfit_estimator</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -623,6 +625,7 @@ document.write(`
 <dd class="field-odd"><dl class="simple">
 <dt><strong>components</strong></dt><dd></dd>
 <dt><strong>id</strong></dt><dd></dd>
+<dt><strong>unfit_estimator</strong></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -657,6 +660,11 @@ document.write(`
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#palma.base.model.ModelEvaluation.id" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="palma.base.model.ModelEvaluation.unfit_estimator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unfit_estimator</span></span><a class="headerlink" href="#palma.base.model.ModelEvaluation.unfit_estimator" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -666,9 +674,19 @@ document.write(`
 <dt class="sig sig-object py" id="palma.base.model_selection.ModelSelector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.base.model_selection.</span></span><span class="sig-name descname"><span class="pre">ModelSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#palma.base.engine.BaseOptimizer" title="palma.base.engine.BaseOptimizer"><span class="pre">BaseOptimizer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.model_selection.ModelSelector" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wrapper to optimizers selecting the best model for a Project.</p>
+<p>The optimization can be launched with the <code class="docutils literal notranslate"><span class="pre">start</span></code> method.
+Once the optimization is done, the best model can be accessed as the <code class="docutils literal notranslate"><span class="pre">best_model_</span></code> attribute.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>- engine (str): Currently accepted values are “FlamlOptimizer” or</strong></dt><dd><p>“AutoSklearnOptimizer” (the latter is deprecatted).</p>
+</dd>
+<dt><strong>- engine_parameters (dict): parameters passed to the engine.</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>run_id</strong></dt><dd></dd>
 </dl>
 </dd>
@@ -676,7 +694,7 @@ document.write(`
 <p class="rubric">Methods</p>
 <table class="table">
 <tbody>
-<tr class="row-odd"><td><p><strong>start</strong></p></td>
+<tr class="row-odd"><td><p><strong>- start(project: Project): look for best model</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -706,7 +724,8 @@ and logging capabilities.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>project_name (str): The name of the project.</strong></dt><dd></dd>
-<dt><strong>problem (str): The description of the machine learning problem.</strong></dt><dd></dd>
+<dt><strong>problem (str): The description of the machine learning problem.</strong></dt><dd><p>Accepted values: “classification” or “regression”.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Attributes<span class="colon">:</span></dt>
@@ -936,6 +955,7 @@ and logging capabilities.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.components"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.components</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.fit"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.fit()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.id"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.model.ModelEvaluation.unfit_estimator"><code class="docutils literal notranslate"><span class="pre">ModelEvaluation.unfit_estimator</span></code></a></li>
 </ul>
 </li>
 </ul>
