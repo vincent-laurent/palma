@@ -21,12 +21,7 @@ Classes
 .. py:class:: BaseOptimizer(engine_parameters: dict)
 
 
-   .. py:property:: optimizer
-      :type: None
-      :abstractmethod:
-
-
-   .. py:property:: estimator_
+   .. py:property:: best_model_
       :type: None
       :abstractmethod:
 
@@ -43,35 +38,37 @@ Classes
    .. py:property:: allow_splitter
 
 
-   .. py:method:: optimize(X: pandas.DataFrame, y: pandas.Series, splitter: palma.base.splitting_strategy.ValidationStrategy = None) -> None
+   .. py:property:: run_id
+      :type: str
+
+
+   .. py:method:: __optimize(X: pandas.DataFrame, y: pandas.Series, splitter: palma.base.splitting_strategy.ValidationStrategy = None) -> None
       :abstractmethod:
 
 
    .. py:method:: allowing_splitter(splitter)
 
 
+   .. py:method:: start(project: Project)
 
-.. py:class:: FlamlOptimizer(problem: str, engine_parameters: dict)
+
+
+.. py:class:: FlamlOptimizer(engine_parameters: dict)
 
 
    Bases: :py:obj:`BaseOptimizer`
 
-   .. py:property:: optimizer
-      :type: flaml.AutoML
-
-
-   .. py:property:: estimator_
+   .. py:property:: best_model_
       :type: sklearn.base.BaseEstimator
 
 
    .. py:property:: transformer_
-      :type: flaml.data.DataTransformer
 
 
    .. py:property:: allow_splitter
 
 
-   .. py:method:: optimize(X: pandas.DataFrame, y: pandas.DataFrame, splitter: palma.base.splitting_strategy.ValidationStrategy = None) -> None
+   .. py:method:: __optimize(X: pandas.DataFrame, y: pandas.DataFrame, splitter: palma.base.splitting_strategy.ValidationStrategy = None) -> None
 
 
 

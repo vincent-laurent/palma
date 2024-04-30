@@ -54,7 +54,7 @@
     <link rel="next" title="palma.base.model" href="../model/index.html" />
     <link rel="prev" title="palma.base" href="../index.html" />
     <script defer data-domain="eurobios-mews-labs.github.io/palma" src="https://plausible.io/js/script.js"></script>
-    <jinja2.runtime.BlockReference object at 0x7f4d74512f50>
+    <jinja2.runtime.BlockReference object at 0x7fec1c7b5210>
 
   </head>
   
@@ -356,21 +356,21 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.optimizer"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.optimizer</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.estimator_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.estimator_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.best_model_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.best_model_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.transformer_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.transformer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.engine_parameters"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.engine_parameters</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.allow_splitter"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.allow_splitter</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.optimize()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.run_id"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.run_id</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.__optimize"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.__optimize()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.allowing_splitter"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.allowing_splitter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.start"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.start()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.optimizer"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.optimizer</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.estimator_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.estimator_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.best_model_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.best_model_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.transformer_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.transformer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.allow_splitter"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.allow_splitter</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.optimize()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.__optimize"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.__optimize()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -408,13 +408,8 @@ document.write(`
 <dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.base.engine.</span></span><span class="sig-name descname"><span class="pre">BaseOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.engine.BaseOptimizer" title="Link to this definition">#</a></dt>
 <dd><dl class="py property">
-<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.optimizer">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimizer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#palma.base.engine.BaseOptimizer.optimizer" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.estimator_">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimator_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#palma.base.engine.BaseOptimizer.estimator_" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.best_model_">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">best_model_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#palma.base.engine.BaseOptimizer.best_model_" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -432,9 +427,14 @@ document.write(`
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">allow_splitter</span></span><a class="headerlink" href="#palma.base.engine.BaseOptimizer.allow_splitter" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.run_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#palma.base.engine.BaseOptimizer.run_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.optimize">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.splitting_strategy.ValidationStrategy" title="palma.base.splitting_strategy.ValidationStrategy"><span class="pre">palma.base.splitting_strategy.ValidationStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.base.engine.BaseOptimizer.optimize" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.__optimize">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.splitting_strategy.ValidationStrategy" title="palma.base.splitting_strategy.ValidationStrategy"><span class="pre">palma.base.splitting_strategy.ValidationStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.base.engine.BaseOptimizer.__optimize" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -442,25 +442,25 @@ document.write(`
 <span class="sig-name descname"><span class="pre">allowing_splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splitter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.engine.BaseOptimizer.allowing_splitter" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="palma.base.engine.BaseOptimizer.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.project.Project" title="palma.base.project.Project"><span class="pre">Project</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.engine.BaseOptimizer.start" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.base.engine.</span></span><span class="sig-name descname"><span class="pre">FlamlOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.engine.FlamlOptimizer" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">palma.base.engine.</span></span><span class="sig-name descname"><span class="pre">FlamlOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#palma.base.engine.FlamlOptimizer" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../../../../palma.base.html#palma.base.engine.BaseOptimizer" title="palma.base.engine.BaseOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseOptimizer</span></code></a></p>
 <dl class="py property">
-<dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.optimizer">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimizer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">flaml.AutoML</span></em><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.optimizer" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.estimator_">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">estimator_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sklearn.base.BaseEstimator</span></em><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.estimator_" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.best_model_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">best_model_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">sklearn.base.BaseEstimator</span></em><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.best_model_" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.transformer_">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transformer_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">flaml.data.DataTransformer</span></em><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.transformer_" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transformer_</span></span><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.transformer_" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -469,8 +469,8 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.optimize">
-<span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.splitting_strategy.ValidationStrategy" title="palma.base.splitting_strategy.ValidationStrategy"><span class="pre">palma.base.splitting_strategy.ValidationStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.optimize" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="palma.base.engine.FlamlOptimizer.__optimize">
+<span class="sig-name descname"><span class="pre">__optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../../palma.base.html#palma.base.splitting_strategy.ValidationStrategy" title="palma.base.splitting_strategy.ValidationStrategy"><span class="pre">palma.base.splitting_strategy.ValidationStrategy</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#palma.base.engine.FlamlOptimizer.__optimize" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -527,21 +527,21 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.optimizer"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.optimizer</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.estimator_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.estimator_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.best_model_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.best_model_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.transformer_"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.transformer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.engine_parameters"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.engine_parameters</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.allow_splitter"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.allow_splitter</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.optimize()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.run_id"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.run_id</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.__optimize"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.__optimize()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.allowing_splitter"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.allowing_splitter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.BaseOptimizer.start"><code class="docutils literal notranslate"><span class="pre">BaseOptimizer.start()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.optimizer"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.optimizer</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.estimator_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.estimator_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.best_model_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.best_model_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.transformer_"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.transformer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.allow_splitter"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.allow_splitter</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.optimize()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#palma.base.engine.FlamlOptimizer.__optimize"><code class="docutils literal notranslate"><span class="pre">FlamlOptimizer.__optimize()</span></code></a></li>
 </ul>
 </li>
 </ul>
