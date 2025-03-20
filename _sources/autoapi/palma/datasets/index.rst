@@ -1,21 +1,19 @@
-:py:mod:`palma.datasets`
-========================
+palma.datasets
+==============
 
 .. py:module:: palma.datasets
 
 
-Package Contents
-----------------
-
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    palma.datasets.load_credit_approval
 
 
+Package Contents
+----------------
 
 .. py:function:: load_credit_approval() -> Tuple[pandas.DataFrame, pandas.Series]
 
@@ -30,13 +28,13 @@ Functions
    Binary features ('A12', 'A9', 'A10', 'A1') are converted to boolean values.
 
 
+
+
    :Returns:
 
        Tuple[pd.DataFrame, pd.Series]
            A tuple containing the features (X) and target labels (y) for
             machine learning tasks.
-
-
 
 
 

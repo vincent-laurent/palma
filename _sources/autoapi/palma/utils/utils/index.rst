@@ -1,23 +1,19 @@
-:py:mod:`palma.utils.utils`
-===========================
+palma.utils.utils
+=================
 
 .. py:module:: palma.utils.utils
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    palma.utils.utils.AverageEstimator
 
 
-
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -33,9 +29,10 @@ Functions
    palma.utils.utils._get_and_check_var_importance
 
 
+Module Contents
+---------------
 
 .. py:class:: AverageEstimator(estimator_list: list)
-
 
    
    A simple ensemble estimator that computes the average prediction of a list of estimators.
@@ -45,21 +42,6 @@ Functions
 
        **estimator_list** : list
            A list of individual estimators to be averaged.
-
-   :Returns:
-
-       numpy.ndarray
-           The averaged prediction or class probabilities.
-
-
-
-
-
-
-
-
-
-
 
    :Attributes:
 
@@ -78,13 +60,34 @@ Functions
    **predict_proba(*args, **kwargs)**  Compute the average class probabilities across all estimators.  
    ==================================  ==========
 
+   :Returns:
+
+       numpy.ndarray
+           The averaged prediction or class probabilities.
+
+
+
+
+
+
+
+
+
+
+
    ..
        !! processed by numpydoc !!
+
+   .. py:attribute:: estimator_list
+
+
+   .. py:attribute:: n
+
+
    .. py:method:: predict(*args, **kwargs) -> iter
 
 
    .. py:method:: predict_proba(*args, **kwargs) -> iter
-
 
 
 .. py:function:: _clone(estimator)
@@ -97,6 +100,8 @@ Functions
 
        **estimator** : object
            The estimator object to be cloned.
+
+
 
    :Returns:
 
@@ -124,8 +129,6 @@ Functions
    >>> original_estimator = LinearRegression()
    >>> cloned_estimator = _clone(original_estimator)
 
-
-
    ..
        !! processed by numpydoc !!
 
@@ -147,6 +150,8 @@ Functions
            If True, the output matrix will have columns for both train and test
            splits for each iteration. If False (default), the output matrix will
            have columns for each iteration with 1 for train and 2 for test.
+
+
 
    :Returns:
 
@@ -171,16 +176,12 @@ Functions
    >>> iter_cv = [(range(3), range(3, 5)), (range(2), range(2, 5))]
    >>> get_splitting_matrix(X, iter_cv)
 
-
-
    ..
        !! processed by numpydoc !!
 
 .. py:function:: check_splitting_strategy(X: pandas.DataFrame, iter_cross_validation: iter)
 
-
 .. py:function:: hash_dataframe(data: pandas.DataFrame, how='whole')
-
 
 .. py:function:: get_hash(**kwargs) -> str
 
@@ -207,7 +208,6 @@ Functions
 
 .. py:function:: get_estimator_name(estimator) -> str
 
-
 .. py:function:: check_started(message: str, need_build: bool = False) -> Callable
 
    
@@ -222,6 +222,8 @@ Functions
 
        **need_build: bool**
            Expected value for :class:`~palma.Project` is_built         attribute
+
+
 
    :Returns:
 
@@ -238,17 +240,12 @@ Functions
 
 
 
-
-
    ..
        !! processed by numpydoc !!
 
 .. py:function:: interpolate_roc(roc_curve_metric: dict[dict[tuple[dict[numpy.array]]]], mean_fpr=np.linspace(0, 1, 100))
 
-
 .. py:function:: _get_processing_pipeline(estimators: list)
 
-
 .. py:function:: _get_and_check_var_importance(estimator)
-
 

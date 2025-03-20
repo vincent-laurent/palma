@@ -1,14 +1,11 @@
-:py:mod:`palma.components.base`
-===============================
+palma.components.base
+=====================
 
 .. py:module:: palma.components.base
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -17,41 +14,21 @@ Classes
    palma.components.base.ModelComponent
 
 
-
+Module Contents
+---------------
 
 .. py:class:: Component
 
-
    Bases: :py:obj:`object`
 
+
    .. py:method:: __str__()
-
-      
-      Return str(self).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      ..
-          !! processed by numpydoc !!
 
 
 .. py:class:: ProjectComponent
 
-
    Bases: :py:obj:`Component`
+
 
    
    Base Project Component class
@@ -74,6 +51,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: __call__(project: palma.base.project.Project) -> None
       :abstractmethod:
 
@@ -81,8 +59,8 @@ Classes
 
 .. py:class:: ModelComponent
 
-
    Bases: :py:obj:`Component`
+
 
    
    Base Model Component class
@@ -104,6 +82,7 @@ Classes
 
    ..
        !! processed by numpydoc !!
+
    .. py:method:: __call__(project: palma.base.project.Project, model)
       :abstractmethod:
 

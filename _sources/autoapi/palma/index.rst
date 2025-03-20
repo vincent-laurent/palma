@@ -1,27 +1,34 @@
-:py:mod:`palma`
-===============
+palma
+=====
 
 .. py:module:: palma
 
 
-Subpackages
------------
+Submodules
+----------
+
 .. toctree::
-   :titlesonly:
-   :maxdepth: 3
+   :maxdepth: 1
 
-   base/index.rst
-   components/index.rst
-   datasets/index.rst
-   preprocessing/index.rst
-   utils/index.rst
+   /autoapi/palma/automl/index
+   /autoapi/palma/base/index
+   /autoapi/palma/components/index
+   /autoapi/palma/datasets/index
+   /autoapi/palma/preprocessing/index
+   /autoapi/palma/utils/index
 
 
-Package Contents
-----------------
+Attributes
+----------
+
+.. autoapisummary::
+
+   palma.logger
+   palma.set_logger
+
 
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
@@ -30,28 +37,29 @@ Classes
    palma.Project
 
 
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   palma.logger
-   palma.set_logger
-
+Package Contents
+----------------
 
 .. py:class:: ModelEvaluation(estimator)
 
-
-   .. py:property:: id
-      :type: str
+   .. py:attribute:: __date
 
 
-   .. py:property:: components
+   .. py:attribute:: __model_id
+      :value: ''
 
 
-   .. py:property:: unfit_estimator
+
+   .. py:attribute:: __estimator
+
+
+   .. py:attribute:: __components
+
+
+   .. py:attribute:: estimator_name
+
+
+   .. py:attribute:: metrics
 
 
    .. py:method:: add(component, name=None)
@@ -66,9 +74,18 @@ Attributes
    .. py:method:: __compute_predictions(project, indexes, estimators)
 
 
+   .. py:property:: id
+      :type: str
+
+
+
+   .. py:property:: components
+
+
+   .. py:property:: unfit_estimator
+
 
 .. py:class:: ModelSelector(engine: Union[str, palma.base.engine.BaseOptimizer], engine_parameters: Dict)
-
 
    
    Wrapper to optimizers selecting the best model for a Project.
@@ -85,17 +102,6 @@ Attributes
            ..
 
 
-
-
-
-
-
-
-
-
-
-
-
    .. rubric:: Methods
 
 
@@ -104,18 +110,40 @@ Attributes
    **- start(project: Project): look for best model**    
    ==================================================  ==========
 
+
+
+
+
+
+
+
+
+
+
+
    ..
        !! processed by numpydoc !!
+
+   .. py:attribute:: __date
+
+
+   .. py:attribute:: __run_id
+      :value: ''
+
+
+
+   .. py:attribute:: __parameters
+
+
+   .. py:method:: start(project: palma.base.project.Project)
+
+
    .. py:property:: run_id
       :type: str
 
 
-   .. py:method:: start(project: Project)
-
-
 
 .. py:class:: Project(project_name: str, problem: str)
-
 
    
    Represents a machine learning project with various components
@@ -129,17 +157,6 @@ Attributes
 
        **problem (str): The description of the machine learning problem.**
            Accepted values: "classification" or "regression".
-
-
-
-
-
-
-
-
-
-
-
 
    :Attributes:
 
@@ -185,46 +202,45 @@ Attributes
    **start(X: pd.DataFrame, y: pd.Series, splitter, X_test=None, y_test=None, groups=None, **kwargs) -> None:**  Starts the project with the specified data and validation strategy.  
    ============================================================================================================  ==========
 
+
+
+
+
+
+
+
+
+
+
+
    ..
        !! processed by numpydoc !!
-   .. py:property:: components
-      :type: dict
+
+   .. py:attribute:: __project_name
 
 
-   .. py:property:: date
-      :type: datetime.datetime
+   .. py:attribute:: __date
 
 
-   .. py:property:: project_id
-      :type: str
+   .. py:attribute:: __study_name
+      :value: ''
 
 
-   .. py:property:: is_started
-      :type: bool
+
+   .. py:attribute:: __problem
 
 
-   .. py:property:: problem
-      :type: str
+   .. py:attribute:: __components
 
 
-   .. py:property:: validation_strategy
-      :type: palma.base.splitting_strategy.ValidationStrategy
+   .. py:attribute:: __is_started
+      :value: False
 
 
-   .. py:property:: project_name
-      :type: str
 
+   .. py:attribute:: __component_list
+      :value: []
 
-   .. py:property:: study_name
-      :type: str
-
-
-   .. py:property:: X
-      :type: pandas.DataFrame
-
-
-   .. py:property:: y
-      :type: pandas.Series
 
 
    .. py:method:: add(component: Component) -> None
@@ -236,12 +252,57 @@ Attributes
    .. py:method:: __call_components(object_: Project) -> None
 
 
+   .. py:property:: components
+      :type: dict
+
+
+
+   .. py:property:: date
+      :type: datetime.datetime
+
+
+
+   .. py:property:: project_id
+      :type: str
+
+
+
+   .. py:property:: is_started
+      :type: bool
+
+
+
+   .. py:property:: problem
+      :type: str
+
+
+
+   .. py:property:: validation_strategy
+      :type: palma.base.splitting_strategy.ValidationStrategy
+
+
+
+   .. py:property:: project_name
+      :type: str
+
+
+
+   .. py:property:: study_name
+      :type: str
+
+
+
+   .. py:property:: X
+      :type: pandas.DataFrame
+
+
+
+   .. py:property:: y
+      :type: pandas.Series
+
+
 
 .. py:data:: logger
 
-   
-
 .. py:data:: set_logger
-
-   
 

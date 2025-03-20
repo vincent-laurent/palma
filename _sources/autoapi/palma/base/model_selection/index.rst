@@ -1,24 +1,21 @@
-:py:mod:`palma.base.model_selection`
-====================================
+palma.base.model_selection
+==========================
 
 .. py:module:: palma.base.model_selection
 
 
-Module Contents
----------------
-
 Classes
-~~~~~~~
+-------
 
 .. autoapisummary::
 
    palma.base.model_selection.ModelSelector
 
 
-
+Module Contents
+---------------
 
 .. py:class:: ModelSelector(engine: Union[str, palma.base.engine.BaseOptimizer], engine_parameters: Dict)
-
 
    
    Wrapper to optimizers selecting the best model for a Project.
@@ -35,17 +32,6 @@ Classes
            ..
 
 
-
-
-
-
-
-
-
-
-
-
-
    .. rubric:: Methods
 
 
@@ -54,13 +40,36 @@ Classes
    **- start(project: Project): look for best model**    
    ==================================================  ==========
 
+
+
+
+
+
+
+
+
+
+
+
    ..
        !! processed by numpydoc !!
+
+   .. py:attribute:: __date
+
+
+   .. py:attribute:: __run_id
+      :value: ''
+
+
+
+   .. py:attribute:: __parameters
+
+
+   .. py:method:: start(project: palma.base.project.Project)
+
+
    .. py:property:: run_id
       :type: str
-
-
-   .. py:method:: start(project: Project)
 
 
 
